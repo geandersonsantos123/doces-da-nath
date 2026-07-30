@@ -1,0 +1,22 @@
+# Doces da Nath
+
+A Doces da Nath é uma confeitaria artesanal com posicionamento premium,
+delicado e acessível.
+
+A identidade visual utiliza principalmente:
+
+- off-white;
+- chocolate;
+- champagne;
+- dourado suave;
+- rose gold apenas como detalhe;
+- tipografia serifada editorial;
+- assinatura caligráfica;
+- ícones lineares delicados.
+
+A página será o link principal da bio do Instagram.
+
+O projeto não deve ser uma cópia do iFood nem uma landing page
+institucional extensa. A proposta é uma vitrine mobile-first com
+catálogo, personalização dos produtos, carrinho leve e envio do pedido
+formatado para o WhatsApp.

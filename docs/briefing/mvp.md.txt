@@ -1,0 +1,27 @@
+# MVP
+
+O MVP deve permitir:
+
+- visualizar a marca e a confeiteira;
+- navegar por categorias;
+- visualizar produtos;
+- selecionar variações;
+- adicionar produtos ao carrinho;
+- alterar quantidades;
+- escolher entrega ou retirada;
+- informar data e observações;
+- selecionar forma de pagamento;
+- enviar o pedido formatado para o WhatsApp;
+- entrar no Clube VIP;
+- visualizar depoimentos;
+- consultar dúvidas frequentes.
+
+Não incluir inicialmente:
+
+- login;
+- pagamento online;
+- painel administrativo;
+- rastreamento do pedido;
+- estoque em tempo real;
+- sistema de entregadores;
+- cadastro obrigatório.
