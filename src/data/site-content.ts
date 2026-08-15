@@ -198,7 +198,7 @@ export const SITE_CONTENT = {
       },
     ],
     actionLabel: "Entrar no Clube VIP",
-    actionHref: "https://forms.office.com/r/9fnL2MiG7q",
+    actionHref: "https://tally.so/r/Xx7JlY",
   },
   socialProof: {
     eyebrow: "PROVA SOCIAL",

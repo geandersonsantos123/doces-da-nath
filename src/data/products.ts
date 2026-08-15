@@ -92,11 +92,13 @@ const customCake: CatalogProduct = {
   fullDescription:
     "Bolo artesanal personalizado, preparado com massa, recheio e acabamento escolhidos para cada ocasião.",
   images: [
-    createProductImage(
-      "bolo-personalizado",
-      "/assets/cloudinary/01-bolo-personalizado_wrlyw9.webp",
-      "Bolo personalizado artesanal com quatro estilos de decoração",
-    ),
+    {
+      id: "bolo-personalizado",
+      url: "https://res.cloudinary.com/x5w8hleo/image/upload/v1786755497/WhatsApp_Image_2026-08-14_at_17.33.04_c6urm6.jpg",
+      alt: "Bolo personalizado artesanal da Doces da Nath",
+      width: 1086,
+      height: 1448,
+    },
   ],
   pricing: {
     type: "variant",
