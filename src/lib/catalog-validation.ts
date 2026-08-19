@@ -168,8 +168,8 @@ function validateCustomCake(
 
   const expectedVariants = [
     { id: "size-p", priceCents: 12500, yieldAmount: 10 },
-    { id: "size-m", priceCents: 25000, yieldAmount: 28 },
-    { id: "size-g", priceCents: 30000, yieldAmount: 42 },
+    { id: "size-m", priceCents: 25000, yieldAmount: 20 },
+    { id: "size-g", priceCents: 30000, yieldAmount: 30 },
   ] as const;
 
   if (cake.variants.length !== expectedVariants.length) {

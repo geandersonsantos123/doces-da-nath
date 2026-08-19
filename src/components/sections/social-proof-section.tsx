@@ -1,3 +1,5 @@
+import { Heart } from "lucide-react";
+
 import { Container } from "@/components/ui/container";
 import { SITE_CONTENT } from "@/data/site-content";
 
@@ -19,16 +21,35 @@ export function SocialProofSection() {
 
         <div className="social-proof__grid">
           {socialProof.items.map((item) => (
-            <article key={item.title} className="social-proof__card">
-              <span className="social-proof__stars" aria-hidden="true">
-                {item.stars}
+            <article key={item.quote[0]} className="social-proof__card">
+              <span className="social-proof__quote-mark" aria-hidden="true">
+                “
               </span>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              <footer>{item.signature}</footer>
+              <blockquote>
+                {item.quote.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </blockquote>
+              <footer>
+                <span aria-hidden="true" />
+                <cite>{item.signature}</cite>
+                <Heart aria-hidden="true" size={15} strokeWidth={1.8} />
+              </footer>
+              <div className="social-proof__stars" aria-hidden="true">
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+              </div>
             </article>
           ))}
         </div>
+
+        <p className="social-proof__closing">
+          <Heart aria-hidden="true" size={16} strokeWidth={1.8} />
+          <span>{socialProof.closing}</span>
+        </p>
       </Container>
     </section>
   );

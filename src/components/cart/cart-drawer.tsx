@@ -24,6 +24,11 @@ import type { CartItem } from "@/types/cart";
 
 type CartStage = "cart" | "checkout" | "review";
 
+const RETIRED_OPTION_GROUPS_BY_PRODUCT = new Map<string, ReadonlySet<string>>([
+  ["bolo-personalizado", new Set(["personalized-message"])],
+  ["bento-cake", new Set(["personalized-message"])],
+]);
+
 function getItemConfiguration(item: CartItem): readonly string[] {
   const configuration: string[] = [];
 
@@ -32,6 +37,14 @@ function getItemConfiguration(item: CartItem): readonly string[] {
   }
 
   for (const option of item.selectedOptions) {
+    if (
+      RETIRED_OPTION_GROUPS_BY_PRODUCT.get(item.productId)?.has(
+        option.groupId,
+      )
+    ) {
+      continue;
+    }
+
     configuration.push(`${option.groupLabel}: ${option.value}`);
   }
 

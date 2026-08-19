@@ -204,30 +204,45 @@ export const SITE_CONTENT = {
     eyebrow: "PROVA SOCIAL",
     title: "Carinho que aparece nos detalhes",
     support:
-      "Quem escolhe a Doces da Nath costuma destacar o capricho, o sabor e o cuidado em cada pedido.",
+      "Feedbacks reais de quem já experimentou os doces da Nath e voltou querendo mais.",
     items: [
       {
-        stars: "★★★★★",
-        title: "Capricho na apresentação",
-        description:
-          "Cada detalhe é pensado para o doce chegar bonito, delicado e com cara de momento especial.",
-        signature: "Clientes da Nath",
+        quote: [
+          "Amei o bolo, voltarei sempre! 👏👏",
+          "Muito bom 😋😋",
+          "Hoje foi Ferrero Rocher.",
+        ],
+        signature: "Cliente da Nath",
       },
       {
-        stars: "★★★★★",
-        title: "Sabor que marca",
-        description:
-          "Receitas artesanais, combinações equilibradas e aquele gostinho de doce feito com cuidado.",
-        signature: "Clientes da Nath",
+        quote: [
+          "Que bolo gostoso, meu Deus do céu!",
+          "Que delícia de bolo, virei cliente! ❤️",
+          "Pena que não deu nem tempo de tirar foto pra postar.",
+        ],
+        signature: "Cliente da Nath",
       },
       {
-        stars: "★★★★★",
-        title: "Atendimento cuidadoso",
-        description:
-          "Pedidos organizados, personalizados e combinados com atenção para cada ocasião.",
-        signature: "Clientes da Nath",
+        quote: [
+          "Que delícia de bolo! Comprei a fatia de ferrero na pracinha e quero te dizer BOLO GOSTOSO MEU DEUS DO CÉU.",
+        ],
+        signature: "Cliente da Nath",
+      },
+      {
+        quote: [
+          "Menina, você tem mãos de fada!",
+          "Juro que nunca comi nada tão gostoso na minha vida. 🥹",
+        ],
+        signature: "Cliente da Nath",
+      },
+      {
+        quote: [
+          "Comprei ontem na pracinha, meu Deus que delícia. Amei! 😍",
+        ],
+        signature: "Cliente da Nath",
       },
     ],
+    closing: "Obrigada por fazerem parte da nossa história!",
   },
   howToOrder: {
     eyebrow: "DO CARDÁPIO AO ATENDIMENTO",

@@ -19,13 +19,9 @@ export type PendingField =
   | "customization_rules"
   | "customization_pricing"
   | "cake_flavor_limit"
-  | "kit_cake_flavors"
-  | "kit_sweet_flavors"
-  | "kit_cookie_flavors"
   | "box_flavors"
   | "box_flavor_limit"
   | "bento_flavors"
-  | "bento_colors"
   | "ready_to_deliver_availability"
   | "price_confirmation";
 

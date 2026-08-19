@@ -55,6 +55,11 @@ const NON_DETAIL_CONFIRMATION_FIELDS = new Set([
   "price_confirmation",
 ]);
 
+const RETIRED_OPTION_GROUPS_BY_PRODUCT = new Map<string, ReadonlySet<string>>([
+  ["bolo-personalizado", new Set(["personalized-message"])],
+  ["bento-cake", new Set(["personalized-message"])],
+]);
+
 function invalidIssue(
   item: CartItem,
   identity: string,
@@ -97,6 +102,15 @@ function reconcileSelectedOptions(
     );
 
     if (!group || group.type !== selectedOption.type) {
+      if (
+        RETIRED_OPTION_GROUPS_BY_PRODUCT.get(product.id)?.has(
+          selectedOption.groupId,
+        ) &&
+        selectedOption.priceModifierCents === 0
+      ) {
+        continue;
+      }
+
       return {
         isValid: false,
         detail: `a opção “${selectedOption.groupLabel}” não existe mais.`,

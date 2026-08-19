@@ -121,14 +121,14 @@ const customCake: CatalogProduct = {
       id: "size-m",
       label: "M",
       priceCents: 25000,
-      yield: { amount: 28, unit: "slices", approximate: true },
+      yield: { amount: 20, unit: "slices", approximate: true },
       requiresPriceConfirmation: false,
     },
     {
       id: "size-g",
       label: "G",
       priceCents: 30000,
-      yield: { amount: 42, unit: "slices", approximate: true },
+      yield: { amount: 30, unit: "slices", approximate: true },
       requiresPriceConfirmation: false,
     },
   ],
@@ -145,14 +145,6 @@ const customCake: CatalogProduct = {
     {
       id: "occasion-details",
       label: "Ocasião e detalhes da decoração",
-      type: "text",
-      required: false,
-      options: NO_OPTIONS,
-      requiresConfirmation: true,
-    },
-    {
-      id: "personalized-message",
-      label: "Mensagem personalizada",
       type: "text",
       required: false,
       options: NO_OPTIONS,
@@ -475,7 +467,17 @@ const partyKitIndividual: CatalogProduct = {
     requiresPriceConfirmation: false,
   },
   variants: NO_VARIANTS,
-  optionGroups: NO_OPTIONS,
+  optionGroups: [
+    {
+      id: "cake-flavor",
+      label: "Sabor do mini bolo",
+      type: "single",
+      required: true,
+      options: cakeFlavorOptions,
+      maxSelections: 1,
+      requiresConfirmation: false,
+    },
+  ],
   availability: "made_to_order",
   leadTime: LEAD_TIME_TO_CONFIRM,
   allowsNotes: true,
@@ -487,9 +489,6 @@ const partyKitIndividual: CatalogProduct = {
   featured: false,
   pendingFields: [
     ...BASE_PENDING_FIELDS,
-    "kit_cake_flavors",
-    "kit_sweet_flavors",
-    "kit_cookie_flavors",
     "customization_rules",
   ],
   requiresWhatsAppConfirmation: true,
@@ -523,7 +522,17 @@ const partyKitForFour: CatalogProduct = {
     requiresPriceConfirmation: false,
   },
   variants: NO_VARIANTS,
-  optionGroups: NO_OPTIONS,
+  optionGroups: [
+    {
+      id: "cake-flavor",
+      label: "Sabor do bolo",
+      type: "single",
+      required: true,
+      options: cakeFlavorOptions,
+      maxSelections: 1,
+      requiresConfirmation: false,
+    },
+  ],
   availability: "made_to_order",
   leadTime: LEAD_TIME_TO_CONFIRM,
   allowsNotes: true,
@@ -535,9 +544,6 @@ const partyKitForFour: CatalogProduct = {
   featured: false,
   pendingFields: [
     ...BASE_PENDING_FIELDS,
-    "kit_cake_flavors",
-    "kit_sweet_flavors",
-    "kit_cookie_flavors",
     "customization_rules",
   ],
   requiresWhatsAppConfirmation: true,
@@ -596,16 +602,16 @@ const brigadeiroBox: CatalogProduct = {
 const bentoCake: CatalogProduct = {
   id: "bento-cake",
   slug: "bento-cake",
-  name: "Bento cake",
+  name: "Baby cake",
   categoryId: "caixas-produtos-individuais",
   shortDescription: "Bolo compacto para comemorações e presentes.",
   fullDescription:
-    "Bolo artesanal em tamanho compacto, ideal para pequenas comemorações, presentes e mensagens personalizadas.",
+    "Bolo artesanal em tamanho compacto, ideal para pequenas comemorações e presentes.",
   images: [
     createProductImage(
       "bento-cake",
       "/assets/cloudinary/02-bento-cake_pyfn1d.webp",
-      "Bento cake personalizado em embalagem individual",
+      "Baby cake personalizado em embalagem individual",
     ),
   ],
   pricing: {
@@ -614,16 +620,7 @@ const bentoCake: CatalogProduct = {
     requiresPriceConfirmation: false,
   },
   variants: NO_VARIANTS,
-  optionGroups: [
-    {
-      id: "personalized-message",
-      label: "Mensagem personalizada",
-      type: "text",
-      required: false,
-      options: NO_OPTIONS,
-      requiresConfirmation: true,
-    },
-  ],
+  optionGroups: NO_OPTIONS,
   availability: "made_to_order",
   leadTime: LEAD_TIME_TO_CONFIRM,
   allowsNotes: true,
@@ -636,12 +633,11 @@ const bentoCake: CatalogProduct = {
   pendingFields: [
     ...BASE_PENDING_FIELDS,
     "bento_flavors",
-    "bento_colors",
     "customization_rules",
   ],
   requiresWhatsAppConfirmation: true,
   contents: NO_CONTENTS,
-  specifications: [{ label: "Peso aproximado", value: "900 g" }],
+  specifications: [{ label: "Peso aproximado", value: "700 g" }],
 };
 
 export const products = [
