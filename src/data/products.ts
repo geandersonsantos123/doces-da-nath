@@ -273,7 +273,7 @@ const brigadeiroDefinitions = [
     fullDescription: "Brigadeiro artesanal preparado com chocolate 50%.",
     image: createProductImage(
       "brigadeiro-chocolate-50",
-      "/assets/cloudinary/06-brigadeiro-chocolate-50_sexam1.webp",
+      "https://res.cloudinary.com/x5w8hleo/image/upload/v1787501581/ChatGPT_Image_23_de_ago._de_2026_13_12_17_r4j1tp.png",
       "Brigadeiros artesanais de chocolate 50% com granulado de chocolate",
     ),
     prices: [4500, 8500, 16500],
@@ -285,6 +285,11 @@ const brigadeiroDefinitions = [
     shortDescription: "Brigadeiro de Leite Ninho com Nutella.",
     fullDescription:
       "Brigadeiro de Leite Ninho com recheio ou finalização de Nutella.",
+    image: createProductImage(
+      "brigadeiro-ninho-nutella",
+      "https://res.cloudinary.com/x5w8hleo/image/upload/v1787500161/ChatGPT_Image_23_de_ago._de_2026_12_46_59_1_pkfi5e.png",
+      "Brigadeiros de Leite Ninho com Nutella",
+    ),
     prices: [5000, 9500, 14500],
     confirmHundredPrice: true,
   },
@@ -357,7 +362,7 @@ const brigadeiroDefinitions = [
     fullDescription: "Brigadeiro artesanal inspirado no sabor Ferrero.",
     image: createProductImage(
       "brigadeiro-ferrero",
-      "/assets/cloudinary/08-brigadeiro-ferrero_sysopa.webp",
+      "https://res.cloudinary.com/x5w8hleo/image/upload/v1787500167/ChatGPT_Image_23_de_ago._de_2026_12_47_00_4_ijmvht.png",
       "Brigadeiros Ferrero cobertos com castanhas e recheio cremoso",
     ),
     prices: [4500, 8500, 16500],
@@ -438,7 +443,7 @@ const brigadeiroDefinitions = [
     fullDescription: "Brigadeiro artesanal com sabor de café.",
     image: createProductImage(
       "brigadeiro-cafe",
-      "/assets/cloudinary/18-brigadeiro-cafe_yilu4w.webp",
+      "https://res.cloudinary.com/x5w8hleo/image/upload/v1787500161/ChatGPT_Image_23_de_ago._de_2026_12_47_00_2_vmjhyy.png",
       "Brigadeiros de café decorados com grãos de café",
     ),
     prices: [4500, 8500, 16500],
@@ -567,7 +572,7 @@ const brigadeiroBox: CatalogProduct = {
   images: [
     createProductImage(
       "caixa-12-brigadeiros",
-      "/assets/cloudinary/03-caixa-12-brigadeiro_pizqwf.webp",
+      "https://res.cloudinary.com/x5w8hleo/image/upload/v1787502337/ChatGPT_Image_23_de_ago._de_2026_13_24_44_eawncv.png",
       "Caixa aberta com 12 brigadeiros artesanais variados",
     ),
   ],
