@@ -2,6 +2,7 @@ import { AtSign, ExternalLink, MessageCircleMore } from "lucide-react";
 import Image from "next/image";
 
 import { Container } from "@/components/ui/container";
+import { MetaPixelAnchor } from "@/components/ui/meta-pixel-anchor";
 import { BRAND_ASSETS, SITE_CONTENT } from "@/data/site-content";
 
 export function SiteFooter() {
@@ -50,10 +51,15 @@ export function SiteFooter() {
             <span>{footer.instagram.label}</span>
             <ExternalLink size={14} strokeWidth={1.7} aria-hidden="true" />
           </a>
-          <a
+          <MetaPixelAnchor
             href={footer.whatsapp.href}
             target="_blank"
             rel="noreferrer noopener"
+            pixelEvent="Contact"
+            pixelEventParameters={{
+              content_name: "WhatsApp da Doces da Nath",
+              content_category: "contato",
+            }}
             aria-label={`${footer.whatsapp.label} no WhatsApp, abre em nova aba`}
           >
             <MessageCircleMore
@@ -63,7 +69,7 @@ export function SiteFooter() {
             />
             <span>{footer.whatsapp.label}</span>
             <ExternalLink size={14} strokeWidth={1.7} aria-hidden="true" />
-          </a>
+          </MetaPixelAnchor>
           <p>{footer.contactHelp}</p>
         </address>
 

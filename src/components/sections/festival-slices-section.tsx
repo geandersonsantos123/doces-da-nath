@@ -81,6 +81,12 @@ export function FestivalSlicesSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="festival-slices__button"
+            pixelEvent="Contact"
+            pixelEventParameters={{
+              content_name: "Festival de Fatias",
+              content_category: "festival-de-fatias",
+              content_type: "product",
+            }}
             aria-label="Reservar fatia pelo WhatsApp, abre em nova aba"
             icon={<Heart size={18} strokeWidth={1.8} />}
           >

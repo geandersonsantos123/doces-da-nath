@@ -18,6 +18,7 @@ import { reconcileCartItems } from "@/lib/cart-reconciliation";
 import type { CartReconciliationResult } from "@/lib/cart-reconciliation";
 import { validateCheckoutOrder } from "@/lib/checkout-validation";
 import { formatBRL } from "@/lib/money";
+import { getMetaContents, trackMetaPixelEvent } from "@/lib/meta-pixel";
 import { generateWhatsAppOrderMessage } from "@/lib/whatsapp-message";
 import { createWhatsAppOrderUrl } from "@/lib/whatsapp-url";
 import type { CartItem } from "@/types/cart";
@@ -170,6 +171,17 @@ export function CartDrawer() {
     setStage("review");
   }
 
+  function beginCheckout() {
+    trackMetaPixelEvent("InitiateCheckout", {
+      content_type: "product",
+      contents: getMetaContents(cart.items),
+      num_items: itemCount,
+      currency: "BRL",
+      value: subtotalCents / 100,
+    });
+    setStage("checkout");
+  }
+
   function sendToWhatsApp() {
     const validation = validateCheckoutOrder(cart.order);
 
@@ -193,6 +205,19 @@ export function CartDrawer() {
     });
     const url = createWhatsAppOrderUrl(message);
 
+    trackMetaPixelEvent("Contact", {
+      content_type: "product",
+      contents: nextReconciliation.lines.map((line) => ({
+        id: line.product.id,
+        quantity: line.item.quantity,
+      })),
+      num_items: nextReconciliation.lines.reduce(
+        (total, line) => total + line.item.quantity,
+        0,
+      ),
+      currency: "BRL",
+      value: nextReconciliation.subtotalCents / 100,
+    });
     window.open(url, "_blank", "noopener,noreferrer");
     setSendFeedback(
       "WhatsApp aberto. O carrinho foi mantido para possíveis ajustes.",
@@ -412,7 +437,7 @@ export function CartDrawer() {
               <button
                 type="button"
                 className="cart-drawer__finalize"
-                onClick={() => setStage("checkout")}
+                onClick={beginCheckout}
               >
                 <ShoppingBag aria-hidden="true" size={18} />
                 Continuar pedido

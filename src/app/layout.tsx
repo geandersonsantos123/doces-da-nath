@@ -33,6 +33,19 @@ const preloaderSessionScript = `
   } catch {}
 `;
 
+const metaPixelId = "1345218744191399";
+const metaPixelScript = `
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+  s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','${metaPixelId}');
+  fbq('track','PageView');
+`;
+
 const siteTitle = "Doces da Nath";
 const siteDescription =
   "Bolos, doces e experiências artesanais preparados com cuidado pela Doces da Nath.";
@@ -74,6 +87,17 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
+        <link
+          rel="preconnect"
+          href="https://connect.facebook.net"
+          crossOrigin="anonymous"
+        />
+        <link rel="preconnect" href="https://www.facebook.com" />
+        <Script
+          id="meta-pixel"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: metaPixelScript }}
+        />
         <Script
           id="preloader-session-state"
           strategy="beforeInteractive"
@@ -83,6 +107,16 @@ export default function RootLayout({
       <body
         className={`${displayFont.variable} ${interfaceFont.variable} ${tickerFont.variable}`}
       >
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element -- Meta Pixel requires its native no-script beacon. */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`}
+            alt=""
+          />
+        </noscript>
         {children}
       </body>
     </html>

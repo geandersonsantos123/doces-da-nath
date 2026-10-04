@@ -42,6 +42,12 @@ export function VipClubSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="vip-club__action"
+            pixelEvent="Lead"
+            pixelEventParameters={{
+              content_name: "Clube VIP",
+              content_category: "clube-vip",
+              content_type: "product",
+            }}
             aria-label={`${vipClub.actionLabel}, abre formulário em nova aba`}
             icon={<ExternalLink size={17} strokeWidth={1.7} />}
           >

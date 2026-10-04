@@ -19,7 +19,11 @@ import {
   createCartVariantSnapshot,
 } from "@/lib/cart-calculations";
 import { formatBRL, multiplyCents } from "@/lib/money";
-import { resolveProductUnitPrice } from "@/lib/product-pricing";
+import { trackMetaPixelEvent } from "@/lib/meta-pixel";
+import {
+  getProductStartingPriceCents,
+  resolveProductUnitPrice,
+} from "@/lib/product-pricing";
 import type { CartItem, CartSelectedOption } from "@/types/cart";
 import type {
   CatalogProduct,
@@ -160,6 +164,21 @@ export function ProductDetailDialog({
   const [notes, setNotes] = useState("");
   const [validationAttempted, setValidationAttempted] = useState(false);
   const [configurationReady, setConfigurationReady] = useState(false);
+
+  useEffect(() => {
+    const startingPriceCents = getProductStartingPriceCents(product);
+
+    trackMetaPixelEvent("ViewContent", {
+      content_ids: [product.id],
+      content_name: product.name,
+      content_category: product.categoryId,
+      content_type: "product",
+      currency: "BRL",
+      ...(startingPriceCents === null
+        ? {}
+        : { value: startingPriceCents / 100 }),
+    });
+  }, [product]);
 
   useEffect(() => {
     const body = document.body;
@@ -341,6 +360,26 @@ export function ProductDetailDialog({
       notes: notes.trim(),
     };
 
+    if (selectedVariant || item.selectedOptions.length > 0) {
+      trackMetaPixelEvent("CustomizeProduct", {
+        content_ids: [product.id],
+        content_name: product.name,
+        content_category: product.categoryId,
+        content_type: "product",
+        currency: "BRL",
+        value: (subtotalCents ?? 0) / 100,
+      });
+    }
+    trackMetaPixelEvent("AddToCart", {
+      content_ids: [product.id],
+      content_name: product.name,
+      content_category: product.categoryId,
+      content_type: "product",
+      contents: [{ id: product.id, quantity }],
+      num_items: quantity,
+      currency: "BRL",
+      value: (subtotalCents ?? 0) / 100,
+    });
     addItem(item);
     setConfigurationReady(true);
   }
